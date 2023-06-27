@@ -1,10 +1,19 @@
 <title>Iris app</title>
 
-<form acion="result">
+<h1>
+
+    {% if result %}
+    {{result}}
+    {% endif %}
+
+</h1>
+
+<form acion="" method="POST">
+    {% csrf_token %}
     Sepal Length : <input type="number" name="sepal_length" required/> <br>
     Sepal Width : <input type="number" name="sepal_width" required/> <br>
     Petal Length : <input type="number" name="petal_length" required/> <br>
-    Petal Length : <input type="number" name="petal_length" required/> <br>
+    Petal Length : <input type="number" name="petal_width" required/> <br>
   
     <input type="submit"/>
     
