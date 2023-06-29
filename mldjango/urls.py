@@ -4,7 +4,7 @@ from django.urls import path,include
 
 urlpatterns = [
    
-    path('',include('irisApp.urls')),
+    path('api/',include('irisApp.urls')), # endpoint api for predictor
     path('admin/', admin.site.urls),
 
 ]
