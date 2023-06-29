@@ -9,10 +9,20 @@ model = load('./savedModels/model.joblib')
 def predictor(request):
 
     if request.method == 'POST':
-        sepal_length = request.POST.get('sepal_length',False)
-        sepal_width = request.POST.get('sepal_width',False)
-        petal_length = request.POST.get('petal_length',False)
-        petal_width= request.POST.get('petal_width',False)
+        
+        sepal_length = request.data['sepal_length']
+        sepal_width = request.data['sepal_width']
+        petal_length = request.data['petal_length']
+        petal_width = request.data['petal_width']
+
+
+        # sepal_length = request.POST.get('sepal_length')
+        # sepal_width = request.POST.get('sepal_width')
+        # petal_length = request.POST.get('petal_length')
+        # petal_width= request.POST.get('petal_length')
+        
+        # print( sepal_length)
+        # print(request.data)
         y_pred =  model.predict([[sepal_length,sepal_width,petal_length,petal_width]])
         if y_pred[0] == 0:
             y_pred = 'setso'
